@@ -1,59 +1,32 @@
 {
   "date": "2026-04-14",
-  "updated_at": "07:00",
-  "summary": "Tänään on <strong>2 kokousta</strong> ja <strong>3 avointa tehtävää</strong>. Sää: pilvistä, 8°C. Politiikassa: budjettineuvottelut jatkuvat.",
+  "updated_at": "13:30",
+  "summary": "Tänään on <strong>2 avointa tehtävää</strong> Monday.comissa (ei myöhässä olevia). Kalenteri ei saatavilla (integraatio-ongelma). Pyöräilyilma: viileä mutta kuiva, 2–8°C. Politiikassa: <strong>Stubb työvierailulla Kanadassa</strong>, Valtonen tapaa Rubion Washingtonissa. Vihreiden Sofia Virta kritisoi hallitusta köyhyyspolitiikasta.",
   "weather": {
-    "icon": "☁️",
+    "icon": "🌤",
     "temp": 8,
     "feels_like": 5,
-    "description": "Pilvistä",
-    "wind": "4",
+    "description": "Puolipilvistä, kuivaa. Aamu viileä (~2°C), päivällä lämpenee 8°C:een.",
+    "wind": "3 m/s",
     "rain": null,
+    "cycling_tip": "🚲 Viileä mutta kuiva pyöräilypäivä – hanskat ja tuulitakki mukaan\!",
     "city": "Helsinki"
   },
   "calendar": [
-    {
-      "time": "09:00",
-      "title": "Esimerkki: Viikkopalaveri",
-      "location": "Teams"
-    },
-    {
-      "time": "13:00",
-      "title": "Esimerkki: 1:1 johtajan kanssa",
-      "location": "Puoluetoimisto"
-    }
+    { "time": "—", "title": "Kalenterin integraatio ei käytettävissä", "location": null }
   ],
   "tasks": [
-    {
-      "title": "Esimerkki: Vastaa mediapyyntöön (YLE)",
-      "overdue": true,
-      "board": "Viestintä"
-    },
-    {
-      "title": "Esimerkki: Valmistele puheenvuoro",
-      "overdue": false,
-      "board": "Tapahtumat"
-    },
-    {
-      "title": "Esimerkki: Tarkista tiedotteen luonnos",
-      "overdue": false,
-      "board": "Viestintä"
-    }
+    { "title": "Fatu määräaikaiset tiedote ja some", "overdue": false, "board": "Viikko 13.4.-.19.4." },
+    { "title": "Matkalaskut sekä päivärahat valtusta bezalaan", "overdue": false, "board": "Viikko 13.4.-.19.4." }
   ],
   "news": [
-    {
-      "source": "YLE",
-      "title": "Tämä on esimerkkiuutinen – oikeat uutiset tulevat automaattisesti joka aamu",
-      "url": null,
-      "summary": "Scheduled task hakee oikeat uutiset klo 7:00 ja päivittää tämän tiedoston."
-    }
+    { "source": "YLE", "title": "Stubb työvierailulla Kanadassa – tapaa pääministeri Carneyn", "url": "https://yle.fi/uutiset/lyhyesti/74-20220389", "summary": "Presidentti Stubb aloittaa kaksipäiväisen työvierailun Kanadaan, tapaa pääministeri Mark Carneyn keskustellakseen kahdenvälisistä suhteista ja arktisista kysymyksistä." },
+    { "source": "YLE", "title": "Valtonen tapaa Yhdysvaltain ulkoministeri Rubion", "url": "https://yle.fi/uutiset/lyhyesti/74-20220187", "summary": "Ulkoministeri Elina Valtonen tapaa tänään Washingtonissa Yhdysvaltain ulkoministerin Marco Rubion." },
+    { "source": "YLE", "title": "Viranomaisposti muuttuu ensisijaisesti sähköiseksi", "url": "https://yle.fi/uutiset/lyhyesti/74-20220388", "summary": "Tänään astuu voimaan muutos, jossa viranomaisposti ohjataan ensisijaisesti sähköiseen Suomi.fi-viesteihin." },
+    { "source": "Iltalehti", "title": "Suomen Pankin Rehn: Korkopäätöksiä ei lukittu etukäteen", "url": "https://www.iltalehti.fi/politiikka", "summary": "Suomen Pankin pääjohtaja Olli Rehn muistuttaa, ettei EKP:n korkopäätöksiä ole sidottu ennakkoon." }
   ],
   "vihreat": [
-    {
-      "source": "HS",
-      "title": "Esimerkki: Vihreät kommentoi ilmastopakettia",
-      "url": null,
-      "summary": "Oikeat mediaosumat haetaan automaattisesti aamulla."
-    }
+    { "source": "YLE / Ampparit", "title": "Sofia Virta kritisoi hallitusta: sopeutustoimet kohdistuvat heikoimmassa asemassa oleviin", "url": "https://www.ampparit.com/vihreat", "summary": "Vihreiden Sofia Virta arvosteli hallitusta eduskunnan kyselytunnilla siitä, että säästötoimet kohdistuvat kaikkein haavoittuvimpiin." },
+    { "source": "Vihreät", "title": "Vihreät valmistautuu 2027 eduskuntavaaleihin", "url": "https://www.vihreat.fi/toimintasuunnitelma-2026/", "summary": "Vihreät kehittää organisaatiotaan ja valmistelee puoluekokouksessa uutta puolueohjelmaa vaaliohjelman pohjaksi." }
   ]
 }
