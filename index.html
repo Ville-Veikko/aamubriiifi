@@ -338,7 +338,7 @@
       <h2>Sää tänään</h2>
     </div>
     <div class="card">
-      <div id="weatherContent" class="weather-card">
+      <div id="weatherContent">
         <div style="color:#999;font-size:0.9rem">Ladataan…</div>
       </div>
     </div>
@@ -467,17 +467,20 @@ function renderWeather(w) {
     return;
   }
   document.getElementById('weatherContent').innerHTML = `
-    <div class="weather-icon">${w.icon || '🌤'}</div>
-    <div class="weather-main">
-      <div class="temp">${w.temp}°C</div>
-      <div class="desc">${w.description || ''}</div>
+    <div class="weather-card">
+      <div class="weather-icon">${w.icon || '🌤'}</div>
+      <div class="weather-main">
+        <div class="temp">${w.temp}°C</div>
+        <div class="desc">${w.description || ''}</div>
+      </div>
+      <div class="weather-details">
+        ${w.feels_like ? `Tuntuu ${w.feels_like}°C<br>` : ''}
+        ${w.wind ? `Tuuli ${w.wind} m/s<br>` : ''}
+        ${w.rain ? `Sade ${w.rain}<br>` : ''}
+        ${w.city || 'Helsinki'}
+      </div>
     </div>
-    <div class="weather-details">
-      ${w.feels_like ? `Tuntuu ${w.feels_like}°C<br>` : ''}
-      ${w.wind ? `Tuuli ${w.wind} m/s<br>` : ''}
-      ${w.rain ? `Sade ${w.rain}<br>` : ''}
-      ${w.city || 'Helsinki'}
-    </div>
+    ${w.cycling_tip ? `<div style="padding: 10px 16px; border-top: 1px solid var(--border); background: var(--vihrea-pale); font-size: 0.88rem; color: var(--vihrea);">🚲 ${w.cycling_tip}</div>` : ''}
   `;
 }
 
