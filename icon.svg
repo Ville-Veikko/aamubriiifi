@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Teal background with rounded corners -->
+  <rect width="512" height="512" rx="96" fill="#3AADAA"/>
+
+  <!-- Speech bubble -->
+  <path d="M120 110 H392 C414 110 432 128 432 150 V300 C432 322 414 340 392 340 H276 L230 400 L216 340 H120 C98 340 80 322 80 300 V150 C80 128 98 110 120 110Z"
+        fill="none" stroke="white" stroke-width="22" stroke-linejoin="round"/>
+
+  <!-- Text lines inside bubble -->
+  <line x1="148" y1="185" x2="364" y2="185" stroke="white" stroke-width="20" stroke-linecap="round"/>
+  <line x1="148" y1="225" x2="320" y2="225" stroke="white" stroke-width="20" stroke-linecap="round"/>
+  <line x1="148" y1="265" x2="290" y2="265" stroke="white" stroke-width="20" stroke-linecap="round"/>
+
+  <!-- Alarm clock body -->
+  <circle cx="168" cy="360" r="72" fill="none" stroke="white" stroke-width="22"/>
+  <!-- Clock face lines -->
+  <line x1="168" y1="360" x2="168" y2="320" stroke="white" stroke-width="16" stroke-linecap="round"/>
+  <line x1="168" y1="360" x2="198" y2="375" stroke="white" stroke-width="16" stroke-linecap="round"/>
+  <!-- Bell bumps -->
+  <path d="M116 300 Q100 282 118 270" fill="none" stroke="white" stroke-width="18" stroke-linecap="round"/>
+  <path d="M220 300 Q236 282 218 270" fill="none" stroke="white" stroke-width="18" stroke-linecap="round"/>
+  <!-- Feet -->
+  <line x1="142" y1="428" x2="128" y2="444" stroke="white" stroke-width="18" stroke-linecap="round"/>
+  <line x1="194" y1="428" x2="208" y2="444" stroke="white" stroke-width="18" stroke-linecap="round"/>
+</svg>

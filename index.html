@@ -4,18 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aamubriiffi</title>
+
+  <!-- PWA / favicon -->
+  <link rel="icon" type="image/svg+xml" href="icon.svg" />
+  <link rel="apple-touch-icon" href="icon.svg" />
+  <meta name="theme-color" content="#3AADAA" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Aamubriiffi" />
+
   <style>
     :root {
-      --vihrea: #2e7d32;
-      --vihrea-light: #4caf50;
-      --vihrea-pale: #e8f5e9;
-      --text: #1a1a1a;
-      --muted: #666;
-      --border: #e0e0e0;
-      --bg: #f9f9f7;
-      --card: #ffffff;
-      --warning: #f57c00;
-      --danger: #c62828;
+      --teal:       #2aadaa;
+      --teal-light: #4bbdba;
+      --teal-pale:  #dff5f4;
+      --teal-border:#b2e4e2;
+      --text:       #1a2e2d;
+      --muted:      #5e7e7d;
+      --border:     #daeaea;
+      --bg:         #f2fafa;
+      --card:       #ffffff;
+      --warning:    #f57c00;
+      --danger:     #c62828;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,31 +40,32 @@
     }
 
     header {
-      background: var(--vihrea);
-      color: white;
+      background: linear-gradient(to bottom, #9ed8d6, #cdeeed);
       padding: 20px 16px 16px;
       position: sticky;
       top: 0;
       z-index: 10;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      box-shadow: 0 2px 8px rgba(42,173,170,0.15);
     }
 
     header h1 {
       font-size: 1.1rem;
       font-weight: 600;
       letter-spacing: 0.5px;
-      opacity: 0.9;
+      color: var(--text);
+      opacity: 0.75;
     }
 
     header .date-line {
       font-size: 1.5rem;
       font-weight: 700;
       margin-top: 2px;
+      color: var(--text);
     }
 
     header .updated {
       font-size: 0.75rem;
-      opacity: 0.7;
+      color: var(--muted);
       margin-top: 4px;
     }
 
@@ -147,7 +159,7 @@
     .event-time {
       font-size: 0.8rem;
       font-weight: 600;
-      color: var(--vihrea);
+      color: var(--teal);
       min-width: 52px;
       padding-top: 2px;
     }
@@ -167,7 +179,7 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: var(--vihrea);
+      background: var(--teal);
       margin-top: 6px;
       flex-shrink: 0;
     }
@@ -192,6 +204,22 @@
       margin-top: 2px;
     }
 
+    .task-checkbox.done {
+      background: var(--teal);
+      border-color: var(--teal);
+      position: relative;
+    }
+
+    .task-checkbox.done::after {
+      content: '✓';
+      position: absolute;
+      top: -1px;
+      left: 2px;
+      font-size: 12px;
+      color: white;
+      font-weight: 700;
+    }
+
     .task-checkbox.overdue {
       border-color: var(--danger);
       background: #ffebee;
@@ -209,7 +237,7 @@
       display: inline-block;
       font-size: 0.7rem;
       font-weight: 600;
-      padding: 1px 6px;
+      padding: 2px 8px;
       border-radius: 10px;
       margin-right: 4px;
     }
@@ -220,8 +248,13 @@
     }
 
     .tag-today {
-      background: var(--vihrea-pale);
-      color: var(--vihrea);
+      background: var(--teal-pale);
+      color: var(--teal);
+    }
+
+    .tag-board {
+      background: var(--teal-pale);
+      color: var(--muted);
     }
 
     /* UUTISET */
@@ -276,8 +309,8 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
       color: white;
-      background: var(--vihrea);
-      padding: 1px 7px;
+      background: var(--teal);
+      padding: 2px 8px;
       border-radius: 10px;
       margin-bottom: 4px;
     }
@@ -289,10 +322,10 @@
       font-size: 0.9rem;
     }
 
-    /* YHTEENVETO-SHORCUT */
+    /* YHTEENVETO */
     .summary-bar {
-      background: var(--vihrea-pale);
-      border: 1px solid #c8e6c9;
+      background: var(--teal-pale);
+      border: 1px solid var(--teal-border);
       border-radius: 12px;
       padding: 14px 16px;
       margin-top: 16px;
@@ -300,7 +333,16 @@
       line-height: 1.7;
     }
 
-    .summary-bar strong { color: var(--vihrea); }
+    .summary-bar strong { color: var(--teal); }
+
+    /* Pyöräilyvinkki säässä */
+    .cycling-tip {
+      padding: 10px 16px;
+      border-top: 1px solid var(--border);
+      background: var(--teal-pale);
+      font-size: 0.88rem;
+      color: var(--teal);
+    }
 
     /* FOOTER */
     footer {
@@ -480,7 +522,7 @@ function renderWeather(w) {
         ${w.city || 'Helsinki'}
       </div>
     </div>
-    ${w.cycling_tip ? `<div style="padding: 10px 16px; border-top: 1px solid var(--border); background: var(--vihrea-pale); font-size: 0.88rem; color: var(--vihrea);">🚲 ${w.cycling_tip}</div>` : ''}
+    ${w.cycling_tip ? `<div class="cycling-tip">🚲 ${w.cycling_tip}</div>` : ''}
   `;
 }
 
@@ -515,7 +557,7 @@ function renderTasks(tasks) {
         <div class="task-text">${t.title}</div>
         <div class="task-meta">
           ${t.overdue ? '<span class="tag tag-overdue">Eilen</span>' : '<span class="tag tag-today">Tänään</span>'}
-          ${t.board ? `<span style="color:#999">${t.board}</span>` : ''}
+          ${t.board ? `<span class="tag tag-board">${t.board}</span>` : ''}
         </div>
       </div>
     </div>
