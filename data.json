@@ -1,0 +1,59 @@
+{
+  "date": "2026-04-14",
+  "updated_at": "07:00",
+  "summary": "Tänään on <strong>2 kokousta</strong> ja <strong>3 avointa tehtävää</strong>. Sää: pilvistä, 8°C. Politiikassa: budjettineuvottelut jatkuvat.",
+  "weather": {
+    "icon": "☁️",
+    "temp": 8,
+    "feels_like": 5,
+    "description": "Pilvistä",
+    "wind": "4",
+    "rain": null,
+    "city": "Helsinki"
+  },
+  "calendar": [
+    {
+      "time": "09:00",
+      "title": "Esimerkki: Viikkopalaveri",
+      "location": "Teams"
+    },
+    {
+      "time": "13:00",
+      "title": "Esimerkki: 1:1 johtajan kanssa",
+      "location": "Puoluetoimisto"
+    }
+  ],
+  "tasks": [
+    {
+      "title": "Esimerkki: Vastaa mediapyyntöön (YLE)",
+      "overdue": true,
+      "board": "Viestintä"
+    },
+    {
+      "title": "Esimerkki: Valmistele puheenvuoro",
+      "overdue": false,
+      "board": "Tapahtumat"
+    },
+    {
+      "title": "Esimerkki: Tarkista tiedotteen luonnos",
+      "overdue": false,
+      "board": "Viestintä"
+    }
+  ],
+  "news": [
+    {
+      "source": "YLE",
+      "title": "Tämä on esimerkkiuutinen – oikeat uutiset tulevat automaattisesti joka aamu",
+      "url": null,
+      "summary": "Scheduled task hakee oikeat uutiset klo 7:00 ja päivittää tämän tiedoston."
+    }
+  ],
+  "vihreat": [
+    {
+      "source": "HS",
+      "title": "Esimerkki: Vihreät kommentoi ilmastopakettia",
+      "url": null,
+      "summary": "Oikeat mediaosumat haetaan automaattisesti aamulla."
+    }
+  ]
+}

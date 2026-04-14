@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aamubriiffi</title>
+  <style>
+    :root {
+      --vihrea: #2e7d32;
+      --vihrea-light: #4caf50;
+      --vihrea-pale: #e8f5e9;
+      --text: #1a1a1a;
+      --muted: #666;
+      --border: #e0e0e0;
+      --bg: #f9f9f7;
+      --card: #ffffff;
+      --warning: #f57c00;
+      --danger: #c62828;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 40px;
+    }
+
+    header {
+      background: var(--vihrea);
+      color: white;
+      padding: 20px 16px 16px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    header h1 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      opacity: 0.9;
+    }
+
+    header .date-line {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    header .updated {
+      font-size: 0.75rem;
+      opacity: 0.7;
+      margin-top: 4px;
+    }
+
+    .stale-warning {
+      background: #fff3e0;
+      border-left: 4px solid var(--warning);
+      padding: 10px 16px;
+      font-size: 0.85rem;
+      color: var(--warning);
+      display: none;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 12px;
+    }
+
+    section {
+      margin-top: 16px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 4px;
+      margin-bottom: 8px;
+    }
+
+    .section-header h2 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+    }
+
+    .section-header .icon {
+      font-size: 1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    /* SAÄ */
+    .weather-card {
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .weather-icon { font-size: 2.5rem; }
+
+    .weather-main .temp {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .weather-main .desc {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 2px;
+    }
+
+    .weather-details {
+      margin-left: auto;
+      text-align: right;
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* KALENTERI */
+    .event-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .event-item:last-child { border-bottom: none; }
+
+    .event-time {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--vihrea);
+      min-width: 52px;
+      padding-top: 2px;
+    }
+
+    .event-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .event-location {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .event-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--vihrea);
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    /* TEHTÄVÄT */
+    .task-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 11px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .task-item:last-child { border-bottom: none; }
+
+    .task-checkbox {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .task-checkbox.overdue {
+      border-color: var(--danger);
+      background: #ffebee;
+    }
+
+    .task-text { font-size: 0.93rem; }
+
+    .task-meta {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 1px 6px;
+      border-radius: 10px;
+      margin-right: 4px;
+    }
+
+    .tag-overdue {
+      background: #ffebee;
+      color: var(--danger);
+    }
+
+    .tag-today {
+      background: var(--vihrea-pale);
+      color: var(--vihrea);
+    }
+
+    /* UUTISET */
+    .news-item {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .news-item:last-child { border-bottom: none; }
+
+    .news-source {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+
+    .news-title {
+      font-size: 0.93rem;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .news-title a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .news-title a:hover { text-decoration: underline; }
+
+    .news-summary {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.45;
+    }
+
+    /* VIHREAT MEDIA */
+    .vihreat-item {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .vihreat-item:last-child { border-bottom: none; }
+
+    .media-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: white;
+      background: var(--vihrea);
+      padding: 1px 7px;
+      border-radius: 10px;
+      margin-bottom: 4px;
+    }
+
+    .empty-state {
+      padding: 20px 16px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* YHTEENVETO-SHORCUT */
+    .summary-bar {
+      background: var(--vihrea-pale);
+      border: 1px solid #c8e6c9;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-top: 16px;
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .summary-bar strong { color: var(--vihrea); }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="date-line" id="headerDate">Ladataan…</div>
+    <div class="updated" id="headerUpdated"></div>
+  </div>
+</header>
+
+<div class="stale-warning" id="staleWarning">
+  ⚠️ Briiffi ei ole tänään päivitetty – näytetään edellinen versio
+</div>
+
+<div class="container">
+
+  <!-- YHTEENVETO -->
+  <section>
+    <div class="summary-bar" id="summaryBar">Ladataan yhteenvetoa…</div>
+  </section>
+
+  <!-- SÄÄ -->
+  <section>
+    <div class="section-header">
+      <span class="icon">🌤</span>
+      <h2>Sää tänään</h2>
+    </div>
+    <div class="card">
+      <div id="weatherContent" class="weather-card">
+        <div style="color:#999;font-size:0.9rem">Ladataan…</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KALENTERI -->
+  <section>
+    <div class="section-header">
+      <span class="icon">📅</span>
+      <h2>Päivän kalenteri</h2>
+    </div>
+    <div class="card" id="calendarContent">
+      <div class="empty-state">Ladataan…</div>
+    </div>
+  </section>
+
+  <!-- TEHTÄVÄT -->
+  <section>
+    <div class="section-header">
+      <span class="icon">✅</span>
+      <h2>Tehtävät</h2>
+    </div>
+    <div class="card" id="tasksContent">
+      <div class="empty-state">Ladataan…</div>
+    </div>
+  </section>
+
+  <!-- UUTISET: SUOMEN POLITIIKKA -->
+  <section>
+    <div class="section-header">
+      <span class="icon">📰</span>
+      <h2>Suomen politiikka</h2>
+    </div>
+    <div class="card" id="newsContent">
+      <div class="empty-state">Ladataan…</div>
+    </div>
+  </section>
+
+  <!-- VIHREIDEN MEDIAOSUMAT -->
+  <section>
+    <div class="section-header">
+      <span class="icon">🌿</span>
+      <h2>Vihreät mediassa</h2>
+    </div>
+    <div class="card" id="vihreatContent">
+      <div class="empty-state">Ladataan…</div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="container">
+    Aamubriiffi · <span id="footerDate"></span>
+  </div>
+</footer>
+
+<script>
+const WEEKDAYS = ['sunnuntai','maanantai','tiistai','keskiviikko','torstai','perjantai','lauantai'];
+const MONTHS = ['tammikuuta','helmikuuta','maaliskuuta','huhtikuuta','toukokuuta','kesäkuuta',
+                'heinäkuuta','elokuuta','syyskuuta','lokakuuta','marraskuuta','joulukuuta'];
+
+function formatFinnishDate(dateStr) {
+  const d = new Date(dateStr);
+  return `${WEEKDAYS[d.getDay()]} ${d.getDate()}. ${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
+}
+
+function formatTime(timeStr) {
+  if (!timeStr) return '';
+  const d = new Date(timeStr);
+  return d.toLocaleTimeString('fi-FI', { hour: '2-digit', minute: '2-digit' });
+}
+
+async function loadBriiffi() {
+  let data;
+  try {
+    const res = await fetch('data.json?t=' + Date.now());
+    data = await res.json();
+  } catch (e) {
+    document.getElementById('summaryBar').textContent = 'Briiffiä ei voitu ladata. Tarkista nettiyhteys.';
+    return;
+  }
+
+  const today = new Date().toISOString().slice(0, 10);
+  const dataDate = data.date || '';
+
+  // Header
+  document.getElementById('headerDate').textContent = formatFinnishDate(data.date || new Date().toISOString());
+  document.getElementById('headerUpdated').textContent = data.updated_at
+    ? `Päivitetty ${data.updated_at}`
+    : 'Päivitysaika tuntematon';
+  document.title = `Aamubriiffi · ${data.date || ''}`;
+
+  // Vanha data -varoitus
+  if (dataDate && dataDate !== today) {
+    document.getElementById('staleWarning').style.display = 'block';
+  }
+
+  // Footer
+  document.getElementById('footerDate').textContent = data.date || '';
+
+  // Yhteenveto
+  document.getElementById('summaryBar').innerHTML = data.summary ||
+    '<span style="color:#999">Ei yhteenvetoa saatavilla</span>';
+
+  // Sää
+  renderWeather(data.weather || {});
+
+  // Kalenteri
+  renderCalendar(data.calendar || []);
+
+  // Tehtävät
+  renderTasks(data.tasks || []);
+
+  // Uutiset
+  renderNews(data.news || []);
+
+  // Vihreät
+  renderVihreat(data.vihreat || []);
+}
+
+function renderWeather(w) {
+  if (!w.temp) {
+    document.getElementById('weatherContent').innerHTML =
+      '<div class="empty-state">Säätietoja ei saatavilla</div>';
+    return;
+  }
+  document.getElementById('weatherContent').innerHTML = `
+    <div class="weather-icon">${w.icon || '🌤'}</div>
+    <div class="weather-main">
+      <div class="temp">${w.temp}°C</div>
+      <div class="desc">${w.description || ''}</div>
+    </div>
+    <div class="weather-details">
+      ${w.feels_like ? `Tuntuu ${w.feels_like}°C<br>` : ''}
+      ${w.wind ? `Tuuli ${w.wind} m/s<br>` : ''}
+      ${w.rain ? `Sade ${w.rain}<br>` : ''}
+      ${w.city || 'Helsinki'}
+    </div>
+  `;
+}
+
+function renderCalendar(events) {
+  const el = document.getElementById('calendarContent');
+  if (!events.length) {
+    el.innerHTML = '<div class="empty-state">Ei kalenterimerkintöjä tänään 🎉</div>';
+    return;
+  }
+  el.innerHTML = events.map(ev => `
+    <div class="event-item">
+      <div class="event-dot"></div>
+      <div class="event-time">${ev.time || 'Koko pv'}</div>
+      <div>
+        <div class="event-title">${ev.title}</div>
+        ${ev.location ? `<div class="event-location">📍 ${ev.location}</div>` : ''}
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderTasks(tasks) {
+  const el = document.getElementById('tasksContent');
+  if (!tasks.length) {
+    el.innerHTML = '<div class="empty-state">Ei avoimia tehtäviä – hyvää päivää! ✨</div>';
+    return;
+  }
+  el.innerHTML = tasks.map(t => `
+    <div class="task-item">
+      <div class="task-checkbox ${t.overdue ? 'overdue' : ''}"></div>
+      <div>
+        <div class="task-text">${t.title}</div>
+        <div class="task-meta">
+          ${t.overdue ? '<span class="tag tag-overdue">Eilen</span>' : '<span class="tag tag-today">Tänään</span>'}
+          ${t.board ? `<span style="color:#999">${t.board}</span>` : ''}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderNews(news) {
+  const el = document.getElementById('newsContent');
+  if (!news.length) {
+    el.innerHTML = '<div class="empty-state">Ei uutisia saatavilla</div>';
+    return;
+  }
+  el.innerHTML = news.map(n => `
+    <div class="news-item">
+      <div class="news-source">${n.source || ''}</div>
+      <div class="news-title">
+        ${n.url ? `<a href="${n.url}" target="_blank">${n.title}</a>` : n.title}
+      </div>
+      ${n.summary ? `<div class="news-summary">${n.summary}</div>` : ''}
+    </div>
+  `).join('');
+}
+
+function renderVihreat(items) {
+  const el = document.getElementById('vihreatContent');
+  if (!items.length) {
+    el.innerHTML = '<div class="empty-state">Ei mediamainintoja tänään</div>';
+    return;
+  }
+  el.innerHTML = items.map(n => `
+    <div class="vihreat-item">
+      <div><span class="media-tag">${n.source || 'Media'}</span></div>
+      <div class="news-title">
+        ${n.url ? `<a href="${n.url}" target="_blank">${n.title}</a>` : n.title}
+      </div>
+      ${n.summary ? `<div class="news-summary">${n.summary}</div>` : ''}
+    </div>
+  `).join('');
+}
+
+loadBriiffi();
+</script>
+</body>
+</html>
