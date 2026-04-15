@@ -1,32 +1,37 @@
 {
-  "date": "2026-04-14",
-  "updated_at": "13:30",
-  "summary": "Tänään on <strong>2 avointa tehtävää</strong> Monday.comissa (ei myöhässä olevia). Kalenteri ei saatavilla (integraatio-ongelma). Pyöräilyilma: viileä mutta kuiva, 2–8°C. Politiikassa: <strong>Stubb työvierailulla Kanadassa</strong>, Valtonen tapaa Rubion Washingtonissa. Vihreiden Sofia Virta kritisoi hallitusta köyhyyspolitiikasta.",
+  "date": "2026-04-15",
+  "updated_at": "07:30",
+  "summary": "Tanaan <strong>4 tapahtumaa</strong> ja <strong>1 tehtava</strong>. Pyoraily: Erinomainen keli, aurinkoa ja kuivaa. Eduskunnassa: <strong>Hallitus vastaa koyhyys-valikysymykseen</strong> ja ruokapoliittinen selonteko kasittelyssa.",
   "weather": {
-    "icon": "🌤",
-    "temp": 8,
-    "feels_like": 5,
-    "description": "Puolipilvistä, kuivaa. Aamu viileä (~2°C), päivällä lämpenee 8°C:een.",
-    "wind": "3 m/s",
+    "icon": "☀️",
+    "temp": 15,
+    "feels_like": 12,
+    "description": "Selkeaa ja aurinkosta, iltapaivalla puolipilvista. Ei sadetta.",
+    "wind": "4 m/s",
     "rain": null,
-    "cycling_tip": "🚲 Viileä mutta kuiva pyöräilypäivä – hanskat ja tuulitakki mukaan!",
+    "cycling_tip": "Erinomainen pyorailykeli! Aamu viilea (+5), paivalla lammin (+15). Ota kevyt kerros mukaan.",
     "city": "Helsinki"
   },
   "calendar": [
-    { "time": "—", "title": "Kalenterin integraatio ei käytettävissä", "location": null }
+    { "time": "10:00", "title": "Toimistopalaveri", "location": "Ryhmahuone ja Teams" },
+    { "time": "14:00", "title": "Koko toimiston kahvihetki", "location": "Keittio" },
+    { "time": "17:30", "title": "Toivo - kendo", "location": null },
+    { "time": "19:00", "title": "Kendo", "location": null }
   ],
   "tasks": [
-    { "title": "Fatu määräaikaiset tiedote ja some", "overdue": false, "board": "Viikko 13.4.-.19.4." },
-    { "title": "Matkalaskut sekä päivärahat valtusta bezalaan", "overdue": false, "board": "Viikko 13.4.-.19.4." }
+    { "title": "Matkalaskut seka paivarahat valtusta bezalaan", "overdue": false, "board": "Viikko 13.4.-.19.4." }
   ],
   "news": [
-    { "source": "YLE", "title": "Stubb työvierailulla Kanadassa – tapaa pääministeri Carneyn", "url": "https://yle.fi/uutiset/lyhyesti/74-20220389", "summary": "Presidentti Stubb aloittaa kaksipäiväisen työvierailun Kanadaan, tapaa pääministeri Mark Carneyn keskustellakseen kahdenvälisistä suhteista ja arktisista kysymyksistä." },
-    { "source": "YLE", "title": "Valtonen tapaa Yhdysvaltain ulkoministeri Rubion", "url": "https://yle.fi/uutiset/lyhyesti/74-20220187", "summary": "Ulkoministeri Elina Valtonen tapaa tänään Washingtonissa Yhdysvaltain ulkoministerin Marco Rubion." },
-    { "source": "YLE", "title": "Viranomaisposti muuttuu ensisijaisesti sähköiseksi", "url": "https://yle.fi/uutiset/lyhyesti/74-20220388", "summary": "Tänään astuu voimaan muutos, jossa viranomaisposti ohjataan ensisijaisesti sähköiseen Suomi.fi-viesteihin." },
-    { "source": "Iltalehti", "title": "Suomen Pankin Rehn: Korkopäätöksiä ei lukittu etukäteen", "url": "https://www.iltalehti.fi/politiikka", "summary": "Suomen Pankin pääjohtaja Olli Rehn muistuttaa, ettei EKP:n korkopäätöksiä ole sidottu ennakkoon." }
+    { "source": "Keski-Uusimaa / US", "title": "Hallitus vastaa tanaan opposition valikysymykseen koyhyydesta", "url": "https://www.keski-uusimaa.fi/uutissuomalainen/9376010", "summary": "Hallitus vastaa eduskunnassa opposition valikysymykseen koyhyyden lisaantymisesta ja elinkustannusten kasvusta." },
+    { "source": "YLE", "title": "Kolme oppositiopuoluetta vaatii hallitusta tilille koyhyyden lisaantymisesta", "url": "https://yle.fi/a/74-20219392", "summary": "Vasemmistoliitto, vihreat ja SDP jattivat valikysymyksen hallituksen koyhyytta lisaavasta politiikasta." },
+    { "source": "MMM", "title": "Ruokapoliittinen selonteko eduskunnan kasittelyssa", "url": "https://mmm.fi/-/ruokapoliittinen-selonteko-linjaa-ruokajarjestelman-suuntaa-vuoteen-2040-ruokaneuvosto-ohjaamaan-tyota", "summary": "Eduskunta kasittelee ruokapoliittista selontekoa, joka linjaa Suomen ruokajarjestelman suuntaa vuoteen 2040." },
+    { "source": "YLE", "title": "Ylen kannatusmittaus: Kokoomuksen kannatus laskee kolmatta kuukautta perakkain", "url": "https://yle.fi/a/74-20218749", "summary": "SDP sailyttaa kaerkinpaikan, Kokoomuksen kannatus pudonnut 17,4 prosenttiin." },
+    { "source": "Eduskunta", "title": "Taysistunto 15.4.2026 klo 11", "url": "https://verkkolahetys.eduskunta.fi/fi/taysistunnot/taysistunto-35-2026", "summary": "Eduskunnan taysistunto alkaa klo 11, asialistalla mm. ruokapoliittinen selonteko." }
   ],
   "vihreat": [
-    { "source": "YLE / Ampparit", "title": "Sofia Virta kritisoi hallitusta: sopeutustoimet kohdistuvat heikoimmassa asemassa oleviin", "url": "https://www.ampparit.com/vihreat", "summary": "Vihreiden Sofia Virta arvosteli hallitusta eduskunnan kyselytunnilla siitä, että säästötoimet kohdistuvat kaikkein haavoittuvimpiin." },
-    { "source": "Vihreät", "title": "Vihreät valmistautuu 2027 eduskuntavaaleihin", "url": "https://www.vihreat.fi/toimintasuunnitelma-2026/", "summary": "Vihreät kehittää organisaatiotaan ja valmistelee puoluekokouksessa uutta puolueohjelmaa vaaliohjelman pohjaksi." }
+    { "source": "STT Info", "title": "Vihreat mukana valikysymyksessa: Lapsikoyhyys ei syvenny vahingossa", "url": "https://www.sttinfo.fi/tiedote/71924220/vihreat-mukana-valikysymyksessa-lapsikoyhyys-ei-syvenny-vahingossa-se-on-hallituksen-tietoinen-valinta?publisherId=69818932&lang=fi", "summary": "Vihreat osallistuu koyhyysvalikysymykseen: hallituksen leikkaukset pudottavat 31 000 uutta lasta koyhyyteen." },
+    { "source": "STT Info", "title": "Sofia Virta: Pian lahes joka kuudes lapsi elaa koyhyydessa", "url": "https://www.sttinfo.fi/tiedote/71938469/sofia-virta-hallituksen-politiikan-seurauksena-pian-lahes-joka-kuudes-lapsi-suomessa-elaa-koyhyydessa?publisherId=69818932&lang=fi", "summary": "Vihreiden puheenjohtaja Virta pitaa hallituksen koyhyyspolitiikkaa epaisanmaallisena taysistunnon valikysymyskeskustelussa." },
+    { "source": "STT Info", "title": "Ohisalo ja Mikkonen: Avoin kirje ministeri Rantaselle lahisuhdevakivallasta", "url": "https://www.sttinfo.fi/tiedote/71864761/entiset-sisaministerit-maria-ohisalo-ja-krista-mikkonen-avoin-kirje-ministeri-mari-rantaselle-vetoavat-lahisuhdevakivallan-uhrien-puolesta?lang=fi", "summary": "Entiset vihreat sisaministerit vaativat konkreettisia toimia lahisuhdevakivallan uhrien suojelemiseksi." },
+    { "source": "STT Info", "title": "Tynkkynen: Suomessa on uuden perustulokokeilun aika", "url": "https://www.sttinfo.fi/tiedote/71718051/vihreiden-tynkkynen-suomessa-on-uuden-perustulokokeilun-aika?lang=fi", "summary": "Vihreiden eduskuntaryhman pj Tynkkynen ehdottaa uutta perustulokokeilua Irlannin mallin pohjalta." }
   ]
 }
